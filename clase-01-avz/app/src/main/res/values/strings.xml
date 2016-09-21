@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">clase-01-avz</string>
+    <string name="title_pelicula_list">Peliculas</string>
+    <string name="title_pelicula_detail">Pelicula Detail</string>
+</resources>
