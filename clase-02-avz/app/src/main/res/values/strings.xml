@@ -5,4 +5,7 @@
     <string name="fondoBlue">Fondo azul</string>
     <string name="progress_title">Calculando Factorial</string>
     <string name="progress_msg">Por favor aguarde...</string>
+    <string name="gotoWS">Ir A WebService</string>
+    <string name="prod1">Producto 1</string>
+    <string name="prod2">Producto 2</string>
 </resources>

@@ -3,6 +3,7 @@ package sebasira.com.clase_02_avz;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +57,17 @@ public class MainActivity extends AppCompatActivity {
                 // AsyncTask justamente para evitar un ANR
                 TareaFactorial miTarea = new TareaFactorial(MainActivity.this);
                 miTarea.execute();
+            }
+        });
+
+
+        // BOTON PARA IR AL WEB SERVICE
+        Button btnWS = (Button) findViewById(R.id.btnWS);
+        btnWS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), WSActivity.class);
+                startActivity(i);
             }
         });
     }

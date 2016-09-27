@@ -28,4 +28,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/fondoBlue"/>
+
+    <Button
+        android:id="@+id/btnWS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gotoWS"/>
 </LinearLayout>
