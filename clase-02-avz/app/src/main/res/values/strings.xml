@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">clase-02-avz</string>
+    <string name="calcularFactrial">Calcular Factorial</string>
+    <string name="fondoRed">Fondo Rojo</string>
+    <string name="fondoBlue">Fondo azul</string>
+    <string name="progress_title">Calculando Factorial</string>
+    <string name="progress_msg">Por favor aguarde...</string>
+</resources>
