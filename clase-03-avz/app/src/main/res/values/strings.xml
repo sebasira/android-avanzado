@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">clase-03-avz</string>
+    <string name="iniciar_started">Iniciar Started Service</string>
+    <string name="finalizar_started">Finalizar Started Service</string>
+    <string name="iniciar_crono">Iniciar Cronometro</string>
+    <string name="obtener_tiempo">Obtener Tiempo</string>
+    <string name="ir_a_crono">Ir a Cronometros</string>
+</resources>
