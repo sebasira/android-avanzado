@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">clase-04-avz</string>
+    <string name="iniciar_started">Iniciar Servicio</string>
+    <string name="finalizar_started">Detener Servicio</string>
+    <string name="alarma_rtc">Alarma RTC</string>
+    <string name="alarma_trt">Alarma Tiempo Real Transcurrido</string>
+    <string name="permitir_desbloquear">Permitir Desbloquear</string>
+    <string name="crear_alarma">Crear Alarma</string>
+    <string name="alarma">ALARMA!!!</string>
+</resources>
