@@ -6,6 +6,9 @@
     <!-- Permiso para Vibrar -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <!-- Permiso para Conectarse a Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
