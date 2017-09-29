@@ -22,6 +22,12 @@
         android:layout_height="wrap_content"
         android:text="@string/prod2"/>
 
+    <Button
+        android:id="@+id/btnProd3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/prod3"/>
+
     <TextView
         android:id="@+id/tvID"
         android:layout_width="wrap_content"

@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private int calculoFactorial(){
         int factorial = 0;
         int sumaFactoriales = 0;
-        for (int i=0; i<60000; i++){
+        for (int i=0; i<600; i++){
             factorial = 1;
             for (int j=1; j<i; j++){
                 factorial = factorial * j;

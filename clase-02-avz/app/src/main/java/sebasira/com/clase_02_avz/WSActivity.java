@@ -8,18 +8,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 
@@ -29,6 +29,8 @@ public class WSActivity extends AppCompatActivity {
     TextView tvImage;
     TextView tvPrecio;
     ImageView imagen;
+
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +43,40 @@ public class WSActivity extends AppCompatActivity {
         tvPrecio = (TextView) findViewById(R.id.tvPrecio);
         imagen = (ImageView) findViewById(R.id.img);
 
+        // Inicializamos la nueva Cola de Requests
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+
         Button btnProd1 = (Button) findViewById(R.id.btnProd1);
         btnProd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new TareaGetProducto().execute("1");
+                String url = "http://sebasira.com.ar/cursos/android-avanzado/ferreteria.php?id=1";
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+                            Gson gson = gsonBuilder.create();
+                            Producto producto = gson.fromJson(response.toString(), Producto.class);
+
+                            tvID.setText(producto.getId());
+                            tvDesc.setText(producto.getDescription());
+                            tvImage.setText(producto.getImage());
+                            tvPrecio.setText(producto.getPrice());
+
+                            ImageLoader.getInstance().displayImage(producto.getImage(), imagen);
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO Auto-generated method stub
+
+                        }
+                    });
+
+                requestQueue.add(jsObjRequest);
             }
         });
 
@@ -53,7 +84,72 @@ public class WSActivity extends AppCompatActivity {
         btnProd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new TareaGetProducto().execute("2");
+                //new TareaGetProducto().execute("2");
+
+                String url = "http://sebasira.com.ar/cursos/android-avanzado/ferreteria.php?id=2";
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                GsonBuilder gsonBuilder = new GsonBuilder();
+                                Gson gson = gsonBuilder.create();
+                                Producto producto = gson.fromJson(response.toString(), Producto.class);
+
+                                tvID.setText(producto.getId());
+                                tvDesc.setText(producto.getDescription());
+                                tvImage.setText(producto.getImage());
+                                tvPrecio.setText(producto.getPrice());
+
+                                ImageLoader.getInstance().displayImage(producto.getImage(), imagen);
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+
+                requestQueue.add(jsObjRequest);
+            }
+        });
+
+
+        Button btnProd3 = (Button) findViewById(R.id.btnProd3);
+        btnProd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //new TareaGetProducto().execute("3");
+
+                String url = "http://sebasira.com.ar/cursos/android-avanzado/ferreteria.php?id=3";
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                GsonBuilder gsonBuilder = new GsonBuilder();
+                                Gson gson = gsonBuilder.create();
+                                Producto producto = gson.fromJson(response.toString(), Producto.class);
+
+                                tvID.setText(producto.getId());
+                                tvDesc.setText(producto.getDescription());
+                                tvImage.setText(producto.getImage());
+                                tvPrecio.setText(producto.getPrice());
+
+                                ImageLoader.getInstance().displayImage(producto.getImage(), imagen);
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+
+                requestQueue.add(jsObjRequest);
             }
         });
 
@@ -63,7 +159,7 @@ public class WSActivity extends AppCompatActivity {
         ImageLoader.getInstance().init(config);
     }
 
-
+/*
     // Tarea para consumir servicio REST
     private class TareaGetProducto extends AsyncTask<String, Void, Producto> {
         @Override
@@ -73,7 +169,7 @@ public class WSActivity extends AppCompatActivity {
             try {
                 // Create an HTTP client
                 HttpClient client = new DefaultHttpClient();
-                HttpGet post = new HttpGet("http://webkathon.com/pruebasit/products.php?id="+params[0]);
+                HttpGet post = new HttpGet("http://sebasira.com.ar/cursos/android-avanzado/ferreteria.php?id="+params[0]);
 
                 // Perform the request and check the status code
                 HttpResponse response = client.execute(post);
@@ -111,4 +207,5 @@ public class WSActivity extends AppCompatActivity {
             ImageLoader.getInstance().displayImage(producto.getImage(), imagen);
         }
     }
+*/
 }
