@@ -45,6 +45,8 @@ public class StartedService extends Service {
         // que el sistema detiene la app, haciendo un FORCE STOP de la misma
 
         // START_STICKY => Cuando el sistema lo detenga, se va a AUTO REINICIAR
+        // Con la tarea temporizada se puede probar poniendole mucho tiempo, cerrando la app
+        // desde las recientes y viendo el timestamp de los logs
         //return START_STICKY;
 
         // START_NOT_STICKY => Cuando el sistema lo detenga, no se va a reiniciar
@@ -77,6 +79,8 @@ public class StartedService extends Service {
 
             Log.e(TAG, "Procesando servicio ID: " + idServicio);
 
+
+            // https://stackoverflow.com/questions/9139128/a-sleeping-thread-is-getting-interrupted-causing-loss-of-connection-to-db
             try{
                 Thread.sleep(5000);
             }catch (InterruptedException e){
