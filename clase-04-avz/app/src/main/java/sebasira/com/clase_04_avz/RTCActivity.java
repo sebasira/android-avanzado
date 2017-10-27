@@ -27,7 +27,7 @@ public class RTCActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rtc);
 
         cbWakeUp = (CheckBox) findViewById(R.id.cbWakeUp);
-        timePicker = (TimePicker) findViewById(R.id.timePicker);
+        //timePicker = (TimePicker) findViewById(R.id.timePicker);
 
         calendar = Calendar.getInstance();
 

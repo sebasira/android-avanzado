@@ -11,7 +11,7 @@ import android.util.Log;
 /**
  * Created by sebas on 10/4/16.
  */
-public class StartedService extends Service {
+public class    StartedService extends Service {
     private static final String TAG = "StartedService";
     TareaTemporizada miTarea;
 
